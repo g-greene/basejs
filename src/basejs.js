@@ -476,10 +476,11 @@ basejs.urlArg = function (name) {
 	return (results !== null) ? results[1] || 0 : false;
 };
 
-basejs.urlAnchor = function (n) {
-	var results = window.location.href.split('#');
+basejs.urlAnchor = function (name) {
+	var results = new RegExp('[\#&]' + name + '=([^&#]*)')
+		.exec(window.location.search);
 
-	return (results !== null) ? results[n] || '' : '';
+	return (results !== null) ? results[1] || 0 : false;
 };
 
 basejs.urlPath = function (n) {
