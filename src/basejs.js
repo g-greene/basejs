@@ -476,6 +476,12 @@ basejs.urlArg = function (name) {
 	return (results !== null) ? results[1] || 0 : false;
 };
 
+basejs.urlAnchor = function (n) {
+	var results = window.location.href.split('#');
+
+	return (results !== null) ? results[n] || '' : '';
+};
+
 basejs.urlPath = function (n) {
 	var results = window.location.pathname.split('/');
 
